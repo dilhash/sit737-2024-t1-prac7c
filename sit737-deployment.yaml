@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sit737-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sit737-app
+  template:
+    metadata:
+      labels:
+        app: sit737-app
+    spec:
+      containers:
+      - name: sit737-app
+        image: localhost:6000/sit737-6.1p-app:v2  # Update the image URL
+        ports:
+        - containerPort: 8080
